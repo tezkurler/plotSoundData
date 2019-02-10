@@ -1,19 +1,3 @@
-# Activity X.X.X: An introduction to Python.
-# File: HW11_talmeida.py
-# Date: 29 November 2018
-# By: Tessca Almeida
-# talmeida
-# Section: 2
-# Team: 40
-#
-# ELECTRONIC SIGNATURE
-# Tessca Almeida
-#
-# The electronic signature above indicates that the program
-# submitted for evaluation is my individual work. I have
-# a general understanding of all aspects of its development
-# and execution.
-#
 # This code prints out plots for the following.
 # Plot 1: Position [mm] v time [s]
 # Plot 2: 3 subplots: position[mm] v time[s], velocity[mm/s] v time[s], 
