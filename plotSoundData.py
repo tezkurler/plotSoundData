@@ -4,9 +4,8 @@
 # acceleration[mm/s^2] v time[s]
 # Plot 3: velocity [in] v position [in]
 # Plot 4: position[mm], velocity[mm/s], acceleration[mm/s^2] v time[s]
-#---------------------------------------------------
-#  Inputs
-#---------------------------------------------------
+
+# import data
 import matplotlib.pyplot as plt
 import csv
 
@@ -17,28 +16,28 @@ with open('soundData.csv', 'r', newline='') as file:
     # for every row in reader, that data set is added to soundData list
     for row in reader:
         soundData.append(row)
-
+# create arrays
 time = []
 pos = []
 vel = []
 acc = []
-#---------------------------------------------------
-#  Computations
-#---------------------------------------------------
+
+# make each row an array
 for row in soundData:
     time.append(float(row[0]))
     pos.append(float(row[1]))
     vel.append(float(row[2])) # in mm / s
     acc.append(float(row[3])) # in mm / s^2
-#---------------------------------------------------
-#  Outputs
-#--------------------------------------------------- 
+
+# Plot 1: Position [mm] v time [s] with a red line and triangle markers
 figure1 = plt.figure(1)
 plt.plot(time, pos, c='red', marker='^')
 plt.title("Position v Time") 
 plt.xlabel("Time [s]") 
 plt.ylabel("Position [mm]")
 
+# Plot 2: 3 subplots: position[mm][black] v time[s], velocity[mm/s][blue] 
+# v time[s], acceleration[mm/s^2][yellow] v time[s]
 figure2 = plt.figure(2)
 figure2a = figure2.add_subplot(232)
 plt.plot(time, pos, c='black')
@@ -58,6 +57,7 @@ plt.title("Acceleration v Time")
 plt.xlabel( "Time [s]") 
 plt.ylabel( "Acceleration [mm/s^2]" )
 
+# create new velocity and position arrays
 velIN = [] # inches / min
 posIN = [] # inches
 
@@ -67,12 +67,15 @@ for row in vel:
 for row in pos:
     posIN.append(float(row) * .0393701)
 
+# Plot 3: velocity [in][orange] v position [in]
 figure3 = plt.figure(3)
 plt.plot(velIN, posIN, c='orange', ls = '--')
 plt.title("Position v Velocity") 
 plt.xlabel("Position [in]") 
 plt.ylabel("Velocity [in/min]")
 
+# Plot 4: position[mm][blue line with star markers], velocity[mm/s][red line 
+# with square markers], acceleration[mm/s^2][green line] v time[s]
 figure4 = plt.figure(4)
 plt.plot(time, pos, c="blue", marker = "*", label = "Position [mm] v Time")
 plt.plot(time, vel, c= "red", marker = "D", label = "Velocity [mm/s] v Time")
